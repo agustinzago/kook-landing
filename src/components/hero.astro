@@ -3,51 +3,49 @@ import { Picture } from "astro:assets";
 import heroImage from "assets/hero.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon/components";
+import Container from "./container.astro";
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <Picture
-      src={heroImage}
-      alt="Astronaut in the air"
-      widths={[200, 400, 600]}
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-    />
-  </div>
-  <div>
-    <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      Marketing website done with Astro
-    </h1>
-    <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      Astroship is a starter template for startups, marketing websites & landing
-      pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly
-      create any website with this starter.
-    </p>
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <Link
-        href="#"
-        href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
-        target="_blank"
-        class="flex gap-1 items-center justify-center"
-        rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" />
+<main class="relative min-h-[80vh] bg-[#F5EFE6] overflow-hidden">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center justify-between">
+    <!-- Contenedor del texto -->
+    <div class="flex-1 max-w-2xl pt-16 lg:pt-32 pb-8 lg:pb-32 relative z-20">
+      <h1
+        class="text-[#2D2D2D] text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
+        PANZA LLENA,<br /> CORAZÓN CONTENTO
+      </h1>
 
-         Download for Free
-      </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://github.com/surjithctly/astroship"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-         GitHub Repo
-      </Link>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <Link
+          href="https://pedixapp.com"
+          target="_blank"
+          class="inline-flex px-6 py-3 text-base font-medium text-white bg-[#F4B223] hover:bg-[#E5A420] rounded-lg transition-colors"
+          rel="noopener">
+          Hacer Pedido
+        </Link>
+        <Link
+          href="/carta"
+          class="inline-flex px-6 py-3 text-base font-medium text-[#2D2D2D] bg-white hover:bg-gray-50 rounded-lg transition-colors border border-gray-200"
+          rel="noopener"
+          target="_blank">
+          Ver Menú
+        </Link>
+      </div>
+    </div>
+
+    <!-- Contenedor de la imagen -->
+    <div
+      class="flex-1 relative z-10 lg:right-0 lg:top-0 lg:bottom-0 lg:w-1/2 justify-end">
+      <Picture
+        src={heroImage}
+        alt="Plato de comida deliciosa"
+        widths={[400, 768, 1024, 1440]}
+        sizes="(max-width: 768px) 100vw, 50vw"
+        loading="eager"
+        format="avif"
+        class="w-full h-full object-cover lg:inset-0"
+      />
     </div>
   </div>
 </main>
