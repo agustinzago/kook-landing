@@ -1,0 +1,112 @@
+---
+import { Picture } from "astro:assets";
+import ajiImage from "assets/sauces/aji.png";
+import babaganoushImage from "assets/sauces/babaganoush.png";
+import mayonesaImage from "assets/sauces/mayonesa.png";
+import muhamaraImage from "assets/sauces/muhamara.png";
+import AnimatedSalsa from "./ui/sauces/animatedSalsa.astro";
+
+interface Salsa {
+  nombre: string;
+  descripcion: string;
+  imagen: ImageMetadata;
+  color: string;
+}
+
+const salsas: Salsa[] = [
+  {
+    nombre: "Babaganoush",
+    descripcion:
+      "Un dip cremoso de berenjenas asadas con tahini, con un toque ahumado y un sabor suave y delicioso. Perfecto para acompañar con pan pita o vegetales frescos.",
+    imagen: babaganoushImage,
+    color: "text-white",
+  },
+  {
+    nombre: "Muhamara",
+    descripcion:
+      "Salsa de origen sirio a base de pimientos rojos asados y nueces, con un toque de comino y un sabor ligeramente dulce y picante. Perfecta para acompañar carnes y panes.",
+    imagen: muhamaraImage,
+    color: "text-red-500",
+  },
+  {
+    nombre: "Ají Amarillo Ácido",
+    descripcion:
+      "Salsa vibrante y fresca con el picor suave del ají amarillo y un toque de acidez, ideal para dar vida a tus carnes, empanadas y papas fritas.",
+    imagen: ajiImage,
+    color: "text-yellow-500",
+  },
+  {
+    nombre: "Mayonesa Casera",
+    descripcion:
+      "Suave y cremosa, hecha con ingredientes frescos. Ideal para añadir sabor y textura a tus sándwiches, ensaladas y aperitivos.",
+    imagen: mayonesaImage,
+    color: "text-white",
+  },
+];
+---
+
+<section class="py-16 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-white text-4xl font-bold text-center mb-16">
+      Nuestras Salsas
+      <span class="block">Especiales</span>
+    </h2>
+
+    <div class="grid gap-8">
+      {
+        salsas.map((salsa, index) => (
+          <AnimatedSalsa direction={index % 2 === 0 ? "left" : "right"}>
+            <div class="flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-center">
+              <div class={`w-64 ${index % 2 !== 0 ? "md:order-2" : ""}`}>
+                <Picture
+                  src={salsa.imagen}
+                  alt={salsa.nombre}
+                  widths={[256, 512]}
+                  sizes="256px"
+                  loading="lazy"
+                  format="avif"
+                  class="w-64 h-64 object-cover"
+                />
+              </div>
+              <div
+                class={`md:w-1/2 ${
+                  index % 2 !== 0
+                    ? "md:order-1 text-right md:pr-4"
+                    : "text-left md:pl-4"
+                } mt-3 md:mt-0`}>
+                <h3 class={`text-3xl font-bold mb-4 ${salsa.color}`}>
+                  {salsa.nombre}
+                </h3>
+                <p class="text-gray-300 leading-relaxed">{salsa.descripcion}</p>
+              </div>
+            </div>
+          </AnimatedSalsa>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative;
+  }
+
+  section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .w-64 {
+    width: 16rem;
+  }
+
+  .h-64 {
+    height: 16rem;
+  }
+</style>

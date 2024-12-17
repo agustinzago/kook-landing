@@ -1,0 +1,44 @@
+---
+// src/components/AnimatedSalsa.astro
+---
+
+<div
+  class="animated-salsa opacity-0 transition-all duration-1000 ease-out"
+  data-direction={Astro.props.direction}>
+  <slot />
+</div>
+
+<script>
+  const animatedSalsas = document.querySelectorAll(".animated-salsa");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const direction = (entry.target as HTMLElement).dataset.direction;
+          entry.target.classList.remove("opacity-0");
+          entry.target.classList.add("opacity-100");
+          if (direction === "left") {
+            entry.target.classList.add("translate-x-0");
+            entry.target.classList.remove("-translate-x-full");
+          } else {
+            entry.target.classList.add("translate-x-0");
+            entry.target.classList.remove("translate-x-full");
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  animatedSalsas.forEach((salsa) => {
+    const direction = (salsa as HTMLElement).dataset.direction;
+    if (direction === "left") {
+      salsa.classList.add("-translate-x-full");
+    } else {
+      salsa.classList.add("translate-x-full");
+    }
+    observer.observe(salsa);
+  });
+</script>

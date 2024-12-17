@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+import Card from "./ui/products/card.astro";
+import bondiolaImage from "../assets/products/bondiola.jpg";
+import picadaImage from "../assets/products/picada.png";
+import tortaSalada from "../assets/products/tortasalada.jpg";
+import Container from "./container.astro";
+---
+
+<section class="w-full bg-background">
+  <div
+    class="flex flex-col items-center justify-center max-w-7xl mx-auto px-4 py-16 lg:py-12">
+    <Container class="text-center mb-10">
+      <h1
+        class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-7">
+        Nuestros productos
+        <br />
+        <span class="block mt-2">destacados</span>
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+        <Card
+          imageSrc={bondiolaImage}
+          imageAlt="Bondiola Braceada"
+          title="Bondiola Braceada"
+          description="Deliciosa bondiola de cerdo cocinada a fuego lento"
+          link="#"
+        />
+        <Card
+          imageSrc={picadaImage}
+          imageAlt="Picada"
+          title="Picadas"
+          description="Variedad de picadas para compartir con amigos"
+          link="#"
+        />
+        <Card
+          imageSrc={tortaSalada}
+          imageAlt="Torta Salada"
+          title="Tortas Saladas"
+          description="Tortas saladas ideales para cualquier ocasión"
+          link="#"
+        />
+      </div>
+    </Container>
+  </div>
+</section>
