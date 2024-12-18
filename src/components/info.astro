@@ -7,39 +7,39 @@ import Container from "./container.astro";
 ---
 
 <main class="relative min-h-[80vh] bg-white overflow-hidden">
-  <div
-    class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center justify-between">
+  <div class="flex flex-col lg:flex-row items-center">
     <!-- Contenedor de la imagen -->
-    <div class="flex-1 relative z-10 lg:w-1/2">
+    <div class="flex-1 relative z-10 lg:w-2/5 -ml-12">
+      <!-- Added negative margin -->
       <Picture
         src={tableImage}
         alt="Mesa con comida deliciosa"
         widths={[400, 768, 1024, 1440]}
-        sizes="(max-width: 768px) 100vw, 50vw"
+        sizes="(max-width: 768px) 100vw, 40vw"
         loading="eager"
         format="avif"
-        class="w-full h-full object-cover"
+        class="w-full h-full lg:h-[90vh] object-cover"
       />
     </div>
-
-    <!-- Contenedor del texto -->
-    <div
-      class="flex-1 max-w-xl lg:pl-12 pt-8 lg:pt-32 pb-8 lg:pb-32 relative z-20">
-      <h1
-        class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight">
-        Sabores <br /> auténticos,<br /> más ricos
-      </h1>
-      <hr class="h-px border-0 my-8 w-10 bg-primary mt-5" />
-      <p class="mt-6 text-lg text-title leading-relaxed">
-        Llenos de sabor y preparados con ingredientes <span
-          class="text-primary font-medium">frescos</span
-        > y de <span class="text-primary font-medium">alta calidad</span>,
-        nuestras especialidades son ideales para cualquier ocasión.
+    <Container>
+      <div
+        class="flex-1 max-w-xl lg:pl-12 pt-8 lg:pt-32 pb-8 lg:pb-32 relative z-20">
+        <h1
+          class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight">
+          Sabores <br /> auténticos,<br /> más ricos
+        </h1>
+        <hr class="h-px border-0 my-8 w-10 bg-primary mt-5" />
+        <p class="mt-6 text-lg text-title leading-relaxed">
+          Llenos de <span class="text-primary font-medium">sabor</span> y preparados
+          con ingredientes de la
+          <span class="text-primary font-medium">más alta calidad</span>,
+          nuestras especialidades son ideales para cualquier ocasión.
+        </p>
         <p class="mt-4 text-lg text-title leading-relaxed">
           Es por esto que recomendamos que sorprendas a tus invitados, con
-          nuestros productos en cualquier tipo de evento
+          nuestros productos en cualquier tipo de evento.
         </p>
-      </p>
-    </div>
+      </div>
+    </Container>
   </div>
 </main>
