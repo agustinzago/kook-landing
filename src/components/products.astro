@@ -10,15 +10,16 @@ import Container from "./container.astro";
 <section class="w-full bg-background">
   <div
     class="flex flex-col items-center justify-center max-w-7xl mx-auto px-4 py-16 lg:py-12">
-    <Container class="text-center mb-10">
+    <Container>
       <h1
-        class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-7">
+        class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight text-center mb-12">
         Nuestros productos
         <br />
         <span class="block mt-2">destacados</span>
       </h1>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center justify-items-center w-full">
         <Card
           imageSrc={bondiolaImage}
           imageAlt="Bondiola Braceada"

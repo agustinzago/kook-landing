@@ -6,48 +6,60 @@ import { Icon } from "astro-icon/components";
 import Container from "./container.astro";
 ---
 
-<main class="relative min-h-[80vh] bg-background overflow-hidden">
-  <div
-    class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center justify-between">
-    <!-- Contenedor del texto -->
-    <div class="flex-1 max-w-2xl pt-16 lg:pt-32 pb-8 lg:pb-32 relative z-20">
-      <h1
-        class="text-title text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
-        PANZA LLENA,<br /> CORAZÓN CONTENTO
-      </h1>
-
-      <div class="mt-8 flex flex-wrap gap-4">
-        <Link
-          href="https://pedixapp.com"
-          target="_blank"
-          class="inline-flex px-6 py-3 text-base font-medium text-white bg-[#F4B223] hover:bg-[#E5A420] rounded-lg transition-colors"
-          rel="noopener"
-          style="primary">
-          Hacer Pedido
-        </Link>
-        <Link
-          href="/carta"
-          class="inline-flex px-6 py-3 text-base font-medium text-[#2D2D2D] bg-white hover:bg-gray-50 rounded-lg transition-colors border border-gray-200"
-          rel="noopener"
-          target="_blank"
-          style="inverted">
-          Ver Menú
-        </Link>
+<main class="relative bg-background overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Mobile-first layout -->
+    <div class="flex flex-col items-center py-8 md:py-16">
+      <!-- Imagen primero en móvil -->
+      <div class="w-full md:w-1/2 -mb-4 md:mb-0 order-1 md:order-2">
+        <Picture
+          src={heroImage}
+          alt="Plato de comida deliciosa"
+          widths={[400, 768, 1024, 1440]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          loading="eager"
+          format="avif"
+          class="w-full max-w-md mx-auto h-auto object-cover"
+        />
       </div>
-    </div>
 
-    <!-- Contenedor de la imagen -->
-    <div
-      class="flex-1 relative z-10 lg:right-0 lg:top-0 lg:bottom-0 lg:w-1/2 justify-end">
-      <Picture
-        src={heroImage}
-        alt="Plato de comida deliciosa"
-        widths={[400, 768, 1024, 1440]}
-        sizes="(max-width: 768px) 100vw, 50vw"
-        loading="eager"
-        format="avif"
-        class="w-full h-full object-cover lg:inset-0"
-      />
+      <!-- Texto debajo en móvil -->
+      <div
+        class="w-full md:w-1/2 pt-4 md:pt-16 pb-4 md:pb-16 order-2 md:order-1 text-center md:text-left">
+        <h1
+          class="text-title text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mt-4">
+          PANZA LLENA,<br /> CORAZÓN CONTENTO
+        </h1>
+
+        <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
+          <Link
+            href="https://pedixapp.com"
+            target="_blank"
+            class="inline-flex px-6 py-3 text-base font-medium text-white bg-[#F4B223] hover:bg-[#E5A420] rounded-lg transition-colors"
+            rel="noopener"
+            style="primary">
+            Hacer Pedido
+          </Link>
+          <Link
+            href="/carta"
+            class="inline-flex px-6 py-3 text-base font-medium text-[#2D2D2D] bg-white hover:bg-gray-50 rounded-lg transition-colors border border-gray-200"
+            rel="noopener"
+            target="_blank"
+            style="inverted">
+            Ver Menú
+          </Link>
+        </div>
+      </div>
     </div>
   </div>
 </main>
+
+<style>
+  @media (min-width: 768px) {
+    .flex-col {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>

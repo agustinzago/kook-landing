@@ -9,17 +9,18 @@ import Container from "./container.astro";
 <main class="relative min-h-[80vh] bg-white overflow-hidden">
   <div class="flex flex-col lg:flex-row items-center">
     <!-- Contenedor de la imagen -->
-    <div class="flex-1 relative z-10 lg:w-2/5 -ml-12">
-      <!-- Added negative margin -->
-      <Picture
-        src={tableImage}
-        alt="Mesa con comida deliciosa"
-        widths={[400, 768, 1024, 1440]}
-        sizes="(max-width: 768px) 100vw, 40vw"
-        loading="eager"
-        format="avif"
-        class="w-full h-full lg:h-[90vh] object-cover"
-      />
+    <div class="flex-1 relative z-10 lg:w-2/5 overflow-visible">
+      <div class="w-[200%] relative -ml-32 -mt-16">
+        <Picture
+          src={tableImage}
+          alt="Mesa con comida deliciosa"
+          widths={[400, 768, 1024, 1440]}
+          sizes="(max-width: 768px) 100vw, 40vw"
+          loading="eager"
+          format="avif"
+          class="w-full h-auto lg:h-[90vh] object-cover rotate-[90deg] lg:rotate-0 scale-[2] md:scale-100"
+        />
+      </div>
     </div>
     <Container>
       <div
@@ -39,7 +40,26 @@ import Container from "./container.astro";
           Es por esto que recomendamos que sorprendas a tus invitados, con
           nuestros productos en cualquier tipo de evento.
         </p>
+        <a
+          href="/about"
+          class="inline-block mt-10 px-4 py-2 text-[#ffffff] bg-[#F4B223] hover:bg-[#E5A420] rounded-lg transition-colors">
+          Más sobre KOOK
+        </a>
       </div>
     </Container>
   </div>
 </main>
+
+<style>
+  @media (max-width: 768px) {
+    .rotate-\[90deg\] {
+      transform: rotate(90deg);
+    }
+  }
+
+  @media (min-width: 769px) {
+    .lg\:rotate-0 {
+      transform: rotate(0deg);
+    }
+  }
+</style>
