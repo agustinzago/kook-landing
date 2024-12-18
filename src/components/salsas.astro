@@ -47,10 +47,12 @@ const salsas: Salsa[] = [
 
 <section class="py-16 px-4">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-white text-4xl font-bold text-center mb-16">
-      Nuestras Salsas
-      <span class="block">Especiales</span>
-    </h2>
+    <h1
+      class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-7 text-center">
+      Nuestros salsas
+      <br />
+      <span class="block mt-2">especiales</span>
+    </h1>
 
     <div class="grid gap-8">
       {
@@ -71,9 +73,9 @@ const salsas: Salsa[] = [
               <div
                 class={`md:w-1/2 ${
                   index % 2 !== 0
-                    ? "md:order-1 text-right md:pr-4"
-                    : "text-left md:pl-4"
-                } mt-3 md:mt-0`}>
+                    ? "md:order-1 md:text-right md:pr-4"
+                    : "md:text-left md:pl-4"
+                } mt-3 md:mt-0 text-center`}>
                 <h3 class={`text-3xl font-bold mb-4 ${salsa.color}`}>
                   {salsa.nombre}
                 </h3>
