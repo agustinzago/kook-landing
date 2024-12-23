@@ -6,21 +6,19 @@ import { Icon } from "astro-icon/components";
 import Container from "./container.astro";
 ---
 
-<main class="relative min-h-[80vh] bg-white overflow-hidden">
-  <div class="flex flex-col lg:flex-row items-center">
+<main class="relative min-h-[50vh] bg-white overflow-hidden">
+  <div class="flex flex-col lg:flex-row items-center lg:w-2/3 ml-12">
     <!-- Contenedor de la imagen -->
-    <div class="flex-1 relative z-10 lg:w-2/5 overflow-visible">
-      <div class="w-[200%] relative -ml-32 -mt-16">
-        <Picture
-          src={tableImage}
-          alt="Mesa con comida deliciosa"
-          widths={[400, 768, 1024, 1440]}
-          sizes="(max-width: 768px) 100vw, 40vw"
-          loading="eager"
-          format="avif"
-          class="w-full h-auto lg:h-[90vh] object-cover rotate-[90deg] lg:rotate-0 scale-[2] md:scale-100"
-        />
-      </div>
+    <div class="flex-1 relative z-10 lg:w-1/2">
+      <Picture
+        src={tableImage}
+        alt="Mesa con comida deliciosa"
+        widths={[400, 768, 1024, 1440]}
+        sizes="(max-width: 768px) 100vw, 50vw"
+        loading="eager"
+        format="avif"
+        class="w-full h-full object-cover lg:h-[60vh]"
+      />
     </div>
     <Container>
       <div

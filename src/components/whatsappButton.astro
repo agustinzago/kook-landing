@@ -1,0 +1,16 @@
+---
+const whatsappNumber = "5493516595111";
+const message =
+  "Hola, KOOK! Estoy interesado en sus servicio de comida para eventos. Podrían darme más información?"; // Mensaje predeterminado
+---
+
+<div class="fixed bottom-5 right-5 z-50">
+  <a
+    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat en WhatsApp"
+    class="flex items-center justify-center w-16 h-16 bg-green-500 text-white rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-transform bg-[#ffffff]">
+    <i class="fa-brands fa-whatsapp text-3xl" style="color: #25d366;"></i>
+  </a>
+</div>
