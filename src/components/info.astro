@@ -1,30 +1,32 @@
 ---
 import { Picture } from "astro:assets";
-import tableImage from "assets/table.png";
+import tableImage from "assets/fullimage.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 import Container from "./container.astro";
 ---
 
-<main class="relative min-h-[50vh] bg-white overflow-hidden">
-  <div class="flex flex-col lg:flex-row items-center lg:w-2/3 ml-12">
-    <!-- Contenedor de la imagen -->
-    <div class="flex-1 relative z-10 lg:w-1/2">
-      <Picture
-        src={tableImage}
-        alt="Mesa con comida deliciosa"
-        widths={[400, 768, 1024, 1440]}
-        sizes="(max-width: 768px) 100vw, 50vw"
-        loading="eager"
-        format="avif"
-        class="w-full h-full object-cover lg:h-[60vh]"
-      />
-    </div>
-    <Container>
+<main class="relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col items-center py-8 md:py-16">
+      <!-- Imagen a la izquierda en desktop -->
+      <div class="w-full md:w-1/2 -mb-4 md:mb-0 order-1">
+        <Picture
+          src={tableImage}
+          alt="Mesa con comida deliciosa"
+          widths={[400, 768, 1024, 1440]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          loading="eager"
+          format="avif"
+          class="w-full max-w-md mx-auto h-auto object-cover"
+        />
+      </div>
+
+      <!-- Texto a la derecha en desktop -->
       <div
-        class="flex-1 max-w-xl lg:pl-12 pt-8 lg:pt-32 pb-8 lg:pb-32 relative z-20">
+        class="w-full md:w-1/2 pt-4 md:pt-16 pb-4 md:pb-16 order-2 text-center md:text-left">
         <h1
-          class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight">
+          class="text-title text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mt-4">
           Sabores <br /> auténticos,<br /> más ricos
         </h1>
         <hr class="h-px border-0 my-8 w-10 bg-primary mt-5" />
@@ -40,24 +42,20 @@ import Container from "./container.astro";
         </p>
         <a
           href="/about"
-          class="inline-block mt-10 px-4 py-2 text-[#ffffff] bg-[#F4B223] hover:bg-[#E5A420] rounded-lg transition-colors">
+          class="inline-block mt-10 px-6 py-3 text-base font-medium text-white bg-[#F4B223] hover:bg-[#E5A420] rounded-lg transition-colors">
           Más sobre KOOK
         </a>
       </div>
-    </Container>
+    </div>
   </div>
 </main>
 
 <style>
-  @media (max-width: 768px) {
-    .rotate-\[90deg\] {
-      transform: rotate(90deg);
-    }
-  }
-
-  @media (min-width: 769px) {
-    .lg\:rotate-0 {
-      transform: rotate(0deg);
+  @media (min-width: 768px) {
+    .flex-col {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 </style>
