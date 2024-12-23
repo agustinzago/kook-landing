@@ -1,10 +1,12 @@
 ---
 import { Picture } from "astro:assets";
-import ajiImage from "assets/sauces/aji.png";
 import babaganoushImage from "assets/sauces/babaganoush.png";
-import mayonesaImage from "assets/sauces/mayonesa.png";
 import muhamaraImage from "assets/sauces/muhamara.png";
 import AnimatedSalsa from "./ui/sauces/animatedSalsa.astro";
+import tomateImage from "assets/sauces/tomatosauce.png";
+import tatzikiImage from "assets/sauces/tatziki.png";
+import coleslawImage from "assets/sauces/coleslaw.png";
+import criollaImage from "assets/sauces/criolla.png";
 
 interface Salsa {
   nombre: string;
@@ -29,18 +31,32 @@ const salsas: Salsa[] = [
     color: "text-muhamara",
   },
   {
-    nombre: "Ají Amarillo Ácido",
+    nombre: "Tatziki",
     descripcion:
-      "Salsa vibrante y fresca con el picor suave del ají amarillo y un toque de acidez, ideal para dar vida a tus carnes, empanadas y papas fritas.",
-    imagen: ajiImage,
-    color: "text-ajiamarillo",
+      "Salsa griega a base de yogur, pepino, ajo y eneldo. Perfecta para acompañar carnes, ensaladas y panes.",
+    imagen: tatzikiImage,
+    color: "text-tatziki",
   },
   {
-    nombre: "Alioli",
+    nombre: "Mermelada de Tomate",
     descripcion:
-      "Suave y cremosa, hecha con ingredientes frescos. Ideal para añadir sabor y textura a tus sándwiches, ensaladas y aperitivos.",
-    imagen: mayonesaImage,
-    color: "text-mayonesa",
+      "Elaborada con tomates frescos y azúcar, esta mermelada es perfecta para acompañar quesos, carnes y panes.",
+    imagen: tomateImage,
+    color: "text-tomato",
+  },
+  {
+    nombre: "Coleslaw",
+    descripcion:
+      "Ensalada de col rallada con zanahoria, aderezada con mayonesa y vinagre. Perfecta para acompañar carnes y hamburguesas.",
+    imagen: coleslawImage,
+    color: "text-coleslaw",
+  },
+  {
+    nombre: "Criolla",
+    descripcion:
+      "Salsa criolla a base de cebolla, tomate y ají, perfecta para acompañar carnes asadas y empanadas.",
+    imagen: criollaImage,
+    color: "text-criolla",
   },
 ];
 ---
@@ -49,7 +65,7 @@ const salsas: Salsa[] = [
   <div class="max-w-6xl mx-auto">
     <h1
       class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-7 text-center">
-      Nuestros salsas
+      Nuestras salsas
       <br />
       <span class="block mt-2">especiales</span>
     </h1>

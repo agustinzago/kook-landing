@@ -12,15 +12,19 @@ module.exports = {
       'ajiamarillo': '#FFBB00',
       'muhamara': '#970F00',
       'mayonesa': '#F6DA9D',
-},
+      'tomato': '#FF6347',
+      'tatziki': '#F8B90E',
+      'coleslaw': '#F5C0A9',
+      'criolla': '#FF6347',
+    },
     extend: {
       fontFamily: {
         sans: [
           "Montserrat",
           "Inter Variable",
           "Inter",
-          ...defaultTheme.fontFamily.sans,],
-
+          ...defaultTheme.fontFamily.sans,
+        ],
       },
     },
   },
