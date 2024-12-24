@@ -16,6 +16,8 @@ const resolvedImageWithDomain = "/opengraph.jpg";
 
 const { title } = Astro.props;
 
+const GTAG_ID = "G-DBVP7E0W01";
+
 const makeTitle = title ? title + " | " + "KOOK Espacio" : "KOOK Espacio";
 ---
 
@@ -85,7 +87,21 @@ const makeTitle = title ? title + " | " + "KOOK Espacio" : "KOOK Espacio";
         },
       }}
     />
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "{GTAG_ID}");
+    </script>
   </head>
+
   <body>
     <Navbar />
     <div class="overflow-hidden">
