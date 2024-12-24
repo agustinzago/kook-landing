@@ -2,59 +2,52 @@
 // AnimatedSalsa.astro
 ---
 
-<div
-  class="fade-in-section opacity-0 transition-all duration-700 ease-out"
-  data-direction={Astro.props.direction}>
-  <slot />
+<div class="relative w-full">
+  <div
+    class="animated-salsa opacity-0 transition-transform transform duration-1000 ease-out will-change-transform w-full"
+    data-direction={Astro.props.direction}>
+    <slot />
+  </div>
 </div>
 
 <script>
-  const fadeElements = document.querySelectorAll(".fade-in-section");
+  const animatedSalsas = document.querySelectorAll(".animated-salsa");
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const element = entry.target;
-          const direction = element.getAttribute("data-direction");
-
-          // Aplicamos la posición inicial según la dirección
-          if (direction === "left") {
-            element.classList.add("-translate-x-full");
-          } else {
-            element.classList.add("translate-x-full");
-          }
-
-          // Forzamos un reflow
-          void (element as HTMLElement).offsetWidth;
-
-          // Animamos a la posición final
-          element.classList.add("opacity-100");
-          element.classList.remove("-translate-x-full", "translate-x-full");
-
-          observer.unobserve(element);
+          const direction = (entry.target as HTMLElement).dataset.direction;
+          entry.target.classList.remove(
+            "opacity-0",
+            "-translate-x-full",
+            "translate-x-full"
+          );
+          entry.target.classList.add("opacity-100", "translate-x-0");
+          observer.unobserve(entry.target);
         }
       });
     },
-    {
-      threshold: 0.1,
-    }
+    { threshold: 0.1 }
   );
 
-  fadeElements.forEach((element) => {
-    const direction = element.getAttribute("data-direction");
+  animatedSalsas.forEach((salsa) => {
+    const direction = (salsa as HTMLElement).dataset.direction;
     if (direction === "left") {
-      element.classList.add("-translate-x-full");
+      salsa.classList.add("-translate-x-full");
     } else {
-      element.classList.add("translate-x-full");
+      salsa.classList.add("translate-x-full");
     }
-    observer.observe(element);
+    observer.observe(salsa);
   });
 </script>
 
 <style>
-  .fade-in-section {
-    transform: translateX(0);
-    will-change: transform, opacity;
+  .animated-salsa {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition:
+      transform 1s ease-out,
+      opacity 1s ease-out;
   }
 </style>

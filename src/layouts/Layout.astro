@@ -98,15 +98,20 @@ const makeTitle = title ? title + " | " + "KOOK Espacio" : "KOOK Espacio";
       }}
     />
   </head>
-  <body class="overflow-x-hidden">
+  <body>
     <Navbar />
-    <slot />
+    <div class="overflow-hidden">
+      <slot />
+    </div>
     <Footer />
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
       img {
         content-visibility: auto;
+      }
+      .overflow-hidden {
+        overflow: hidden;
       }
     </style>
     <WhatsappButton />

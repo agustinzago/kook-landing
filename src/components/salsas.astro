@@ -61,7 +61,7 @@ const salsas: Salsa[] = [
 ];
 ---
 
-<section class="py-16 px-4">
+<section class="py-16 px-4 relative">
   <div class="max-w-6xl mx-auto">
     <h1
       class="text-title text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-7 text-center">
@@ -111,27 +111,3 @@ const salsas: Salsa[] = [
     </div>
   </div>
 </section>
-
-<style>
-  section {
-    position: relative;
-  }
-
-  section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-  }
-
-  .w-64 {
-    width: 16rem;
-  }
-
-  .h-64 {
-    height: 16rem;
-  }
-</style>
