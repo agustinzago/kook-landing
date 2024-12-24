@@ -1,9 +1,5 @@
----
-// src/components/AnimatedSalsa.astro
----
-
 <div
-  class="animated-salsa opacity-0 transition-all duration-1000 ease-out"
+  class="animated-salsa opacity-0 transition-all duration-1000 ease-out will-change-transform"
   data-direction={Astro.props.direction}>
   <slot />
 </div>
