@@ -12,7 +12,6 @@ const menuitems = [
   },
   {
     title: "MENÚ",
-    target: "_blank",
     path: "https://pedix.app/kook-espacio/",
   },
   {
@@ -47,7 +46,6 @@ const menuitems = [
                 <li>
                   <a
                     href={item.path}
-                    target={item.target || "_self"}
                     class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
                     <span> {item.title}</span>
                   </a>
@@ -64,7 +62,7 @@ const menuitems = [
     <div>
       <div class="hidden lg:flex items-center gap-4">
         <a href="#"></a>
-        <Link href="https://pedix.app/kook-espacio/" size="md" target="_blank"
+        <Link href="https://pedix.app/kook-espacio/" size="md"
           >Hacer Pedido</Link
         >
       </div>
