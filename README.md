@@ -33,7 +33,7 @@ En Kook, nos dedicamos a:
 - Garantizar una experiencia culinaria única en cada ocasión.
 
 ## Conéctate con Nosotros
-- **Sitio Web:** [Kook - Espacio](https://pedix.app/kook-espacio/)
+- **Sitio Web:** [Kook - Espacio](https://www.kookespacio.com)
 - **Correo:** jzago97@gmail.com
 - **Teléfono:** +54 9 3516 80-4874
 
